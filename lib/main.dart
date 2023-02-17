@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:personal_portfolio/pages/splash_page.dart';
 import 'package:personal_portfolio/routes/app_routes.dart';
+import 'package:personal_portfolio/services/left_navigation_service.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const PortfolioApp());
+  runApp(MultiProvider(providers: [
+    ChangeNotifierProvider(
+      create: (_) => LeftNavigationService(),
+    ),
+  ], child: const PortfolioApp()));
 }
 
 class PortfolioApp extends StatelessWidget {
