@@ -59,9 +59,8 @@ class _WelcomePageState extends State<WelcomePage>
                       border: Border.all(
                           color: PersonalPortfolioColors.mainBlue, width: 8),
                       borderRadius: BorderRadius.circular(100),
-                      image: const DecorationImage(
-                          image: NetworkImage(
-                              'https://avatars.githubusercontent.com/u/35883537?v=4'),
+                      image: DecorationImage(
+                          image: NetworkImage(welcomeService.image),
                           fit: BoxFit.cover)),
                 ),
                 const SizedBox(width: 40),
@@ -88,14 +87,16 @@ class _WelcomePageState extends State<WelcomePage>
                       fontWeight: FontWeight.bold,
                       color: Colors.white),
                 ),
-                const Text.rich(
+                Text.rich(
                   TextSpan(
-                      style: TextStyle(fontSize: 100, color: Colors.white),
+                      style:
+                          const TextStyle(fontSize: 100, color: Colors.white),
                       children: [
-                        TextSpan(text: "I'm "),
+                        const TextSpan(text: "I'm "),
                         TextSpan(
-                            text: 'José',
-                            style: TextStyle(fontWeight: FontWeight.bold)),
+                            text: welcomeService.name,
+                            style:
+                                const TextStyle(fontWeight: FontWeight.bold)),
                       ]),
                   textAlign: TextAlign.center,
                 ),
@@ -111,15 +112,15 @@ class _WelcomePageState extends State<WelcomePage>
                         mainAxisSize: MainAxisSize.min,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
-                          Text('Flutter and',
+                        children: [
+                          Text(welcomeService.title1,
                               textAlign: TextAlign.center,
-                              style:
-                                  TextStyle(fontSize: 40, color: Colors.white)),
-                          Text('Cloud Enthusiast',
+                              style: const TextStyle(
+                                  fontSize: 40, color: Colors.white)),
+                          Text(welcomeService.title2,
                               textAlign: TextAlign.center,
-                              style:
-                                  TextStyle(fontSize: 40, color: Colors.white)),
+                              style: const TextStyle(
+                                  fontSize: 40, color: Colors.white)),
                         ],
                       )
                     ]),
