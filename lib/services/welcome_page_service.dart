@@ -1,30 +1,56 @@
 import 'dart:async';
 import 'package:flutter/animation.dart';
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class WelcomePageService extends ChangeNotifier {
-  String name = 'Jose';
-  String title1 = 'Flutter and';
-  String title2 = 'Cloud Enthusiast';
+  FirebaseFirestore firestore = FirebaseFirestore.instance;
+
+  String name = '';
+  String title1 = '';
+  String title2 = '';
+  String image = '';
+  bool isDataRetrieved = false;
+
+  List<String> greetings = [];
+  int greetingsCounter = 0;
+  String currentGreeting = '';
 
   Timer greetingsTimer = Timer(Duration.zero, () {});
-
   late AnimationController wavingAnimation;
 
-  static List<String> greetings = [
-    "Hello",
-    "Hola",
-    "Que Lo Que",
-    "Bonjour",
-    "Olá",
-    "Ciao",
-    "Namaste",
-    "Kon'nichiwa"
-  ];
+  void refreshData() async {
+    isDataRetrieved = await retrieveWelcomePageData();
+    initializeGreetings();
+    notifyListeners();
+  }
 
-  int greetingsCounter = 0;
+  Future<bool> retrieveWelcomePageData() async {
+    if (isDataRetrieved) {
+      return true;
+    }
 
-  String currentGreeting = greetings[0];
+    CollectionReference personalPortfolioCollection =
+        firestore.collection('personal-portfolio');
+
+    DocumentSnapshot pageDocument =
+        await personalPortfolioCollection.doc('welcome-page').get();
+
+    Map<String, dynamic> pageData = pageDocument.data() as Map<String, dynamic>;
+
+    name = pageData['name'];
+    title1 = pageData['title1'];
+    title2 = pageData['title2'];
+    image = pageData['image'];
+    greetings = (pageData['greetings'] as List<dynamic>)
+        .map((e) => e.toString())
+        .toList();
+
+    currentGreeting = greetings[0];
+
+    isDataRetrieved = true;
+    return isDataRetrieved;
+  }
 
   void initializeGreetings() {
     // cycle through the list of greetings every second

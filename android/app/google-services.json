@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1062180731311",
+    "project_id": "jose-portfolio-flutterweb-2",
+    "storage_bucket": "jose-portfolio-flutterweb-2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1062180731311:android:436c059175b9602599175a",
+        "android_client_info": {
+          "package_name": "com.example.personal_portfolio"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1062180731311-rie4f09guu53ck36aicm7emek3n2lfu5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAxmqy4QcyPCtEPHmKBxJYxsh9Gp-DwcMw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1062180731311-rie4f09guu53ck36aicm7emek3n2lfu5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

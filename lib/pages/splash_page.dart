@@ -6,6 +6,10 @@ import 'package:personal_portfolio/helpers/colors.dart';
 import 'package:personal_portfolio/helpers/personal_portfolio_icons_icons.dart';
 import 'package:personal_portfolio/pages/portfoliomain_page.dart';
 import 'package:personal_portfolio/pages/welcome_page.dart';
+import 'package:provider/provider.dart';
+
+import '../helpers/utils.dart';
+import '../services/welcome_page_service.dart';
 
 class SplashPage extends StatefulWidget {
   static const String route = '/splash';
@@ -21,8 +25,16 @@ class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
     super.initState();
-    delayTimer = Timer(const Duration(seconds: 2), () {
-      GoRouter.of(context).go(WelcomePage.route);
+    fetchData(context);
+  }
+
+  void fetchData(BuildContext context) {
+    var delayTimer = Timer(const Duration(seconds: 2), () async {
+      var isWelcomePageDataRetrieved =
+          await context.read<WelcomePageService>().retrieveWelcomePageData();
+      if (isWelcomePageDataRetrieved) {
+        GoRouter.of(Utils.mainNav.currentContext!).go(WelcomePage.route);
+      }
     });
   }
 

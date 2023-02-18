@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>1062180731311-ra3s4frvi9t9p1b9gpgk0a2n5cm0b09d.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1062180731311-ra3s4frvi9t9p1b9gpgk0a2n5cm0b09d</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBCw8seqVkux_W_Q817IUdVbAibXpZjpDk</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1062180731311</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.personalPortfolio</string>
+	<key>PROJECT_ID</key>
+	<string>jose-portfolio-flutterweb-2</string>
+	<key>STORAGE_BUCKET</key>
+	<string>jose-portfolio-flutterweb-2.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1062180731311:ios:8e506fe3a63babfe99175a</string>
+</dict>
+</plist>

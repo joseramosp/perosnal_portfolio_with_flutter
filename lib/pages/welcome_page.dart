@@ -26,14 +26,23 @@ class _WelcomePageState extends State<WelcomePage>
     serviceInstance = context.read<WelcomePageService>();
 
     // invoke the initialization of the greetings
-    serviceInstance.initializeGreetings();
     serviceInstance.initializeAnimation(this);
+
+    if (serviceInstance.isDataRetrieved) {
+      serviceInstance.initializeGreetings();
+    } else {
+      serviceInstance.refreshData();
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     return Consumer<WelcomePageService>(
         builder: (context, welcomeService, child) {
+      if (!welcomeService.isDataRetrieved) {
+        return const SizedBox.shrink();
+      }
+
       return Center(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
