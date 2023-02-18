@@ -2,12 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:personal_portfolio/pages/splash_page.dart';
 import 'package:personal_portfolio/routes/app_routes.dart';
 import 'package:personal_portfolio/services/left_navigation_service.dart';
+import 'package:personal_portfolio/services/welcome_page_service.dart';
 import 'package:provider/provider.dart';
 
 void main() {
   runApp(MultiProvider(providers: [
     ChangeNotifierProvider(
       create: (_) => LeftNavigationService(),
+    ),
+    ChangeNotifierProvider(
+      create: (_) => WelcomePageService(),
     ),
   ], child: const PortfolioApp()));
 }
